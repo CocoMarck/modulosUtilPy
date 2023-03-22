@@ -157,9 +157,7 @@ def Continue(
 
 
 
-def Name(txt = 'Archivo', sys=sys):
-    nme = input(Title(txt=f'Nombre de {txt}', see=False) +
-              'Nombre: ')
+def Name(nme=''):
     if nme == '':
         nme ='No_name'
     else: pass
@@ -196,6 +194,18 @@ def Path(pth, sys=sys):
 
     CleanScreen()
     return pth
+    
+
+def Archive_Path(txt='Archivo'):
+    CleanScreen()
+    
+    Title(f'Ruta - {txt}')
+    cfg = Path(input('Ruta/Carpeta: '))
+    
+    Title(f'Nombre - {txt}')
+    cfg = cfg + Name(input('Nombre/Archivo: '))
+    
+    return cfg
     
 
 def Text_Read(file_and_path='', opc='ModeList'):
