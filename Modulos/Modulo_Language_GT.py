@@ -1,9 +1,12 @@
-import Modulo_Util as Util
-from Modulo_GT import Translate as GoogleTranslator
-from Modulo_Language import (
+from . import Modulo_Util as Util
+from .Modulo_GT import Translate as GoogleTranslator
+from .Modulo_Language import (
     Default_Language,
     Language
 )
+
+
+lang_dir = './Languages/'
 
 
 def Translate(
