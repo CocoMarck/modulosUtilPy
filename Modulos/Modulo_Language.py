@@ -97,15 +97,15 @@ def YesNo(option='yes', lang=Default_Language()):
     # Y hacerlo sin mayusculas con el metodo lower().
     if option == 'yes':
         # Obtener si
-        text = ( (get_text('YesNo'))[0][:1] ).lower()
+        text = ( (get_text('yes'))[:1] ).lower()
 
     elif option == 'no':
         # Obtener no
-        text = ( (get_text('YesNo'))[1][:1] ).lower()
+        text = ( (get_text('no'))[:1] ).lower()
 
     else:
         # Obtener no
-        text = ( (get_text('YesNo'))[1][:1] ).lower()
+        text = ( (get_text('no'))[:1] ).lower()
     
     return text
 
@@ -113,6 +113,16 @@ def YesNo(option='yes', lang=Default_Language()):
 def get_text(text='app'):
     # Declarar variable/diccionario
     lang = Language()
+    
+    # Si el texto es si o no
+    if text == 'yes':
+        # Devolver si
+        return (lang['YesNo'])[0]
+    elif text == 'no':
+        # Devolver no
+        return (lang['YesNo'])[1]
+    else:
+        pass
     
     # Si el texto existe en las key del diccionario
     if text in lang.keys():
