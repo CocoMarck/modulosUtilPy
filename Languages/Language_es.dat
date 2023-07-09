@@ -7,6 +7,8 @@ see_options=Mira todas las opciones
 start=Iniciar
 stop=Parar
 exit=Salir
+optional=Opcional
+of=de
 
 # Continuar
 continue=Continuar
@@ -101,3 +103,27 @@ comment=Comentario
 terminal=Terminal
 categories=Categorias
 wait=Esperar
+
+# Muebles
+gen_furniture=Generador de muebles
+corner_shelving=Esquinero
+table=Mesa
+measures_corner_shelving=Medidas de esquinero
+measures_table=Medidas de mesa
+
+# Medidas
+suggest_base_for_parts=Base sugerida para obtener piezas
+size=Tamaño
+measures=Medidas
+thickness=Grosor
+width=Ancho
+height=Altura
+
+# Partes de objetos
+parts=Piezas
+part_main=Parte Principal
+part_support=Parte de soporte
+paw=Pata
+shelf=Repisa
+shelf_square=Repisa cuadrada
+rectangular_wall=Pared rectangular

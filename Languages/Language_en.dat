@@ -10,6 +10,7 @@ see_options=See the all options
 start=Start
 stop=Stop
 exit=Exit
+optional=Optional
 
 # Text Type Continue
 continue=Continue
@@ -93,6 +94,7 @@ mode=Mode
 more_info=Show more information
 cmd=Command
 text=Text
+of=of
 
 # Install-App type text
 ver=Version
@@ -104,3 +106,27 @@ terminal=Terminal
 categories=Categories
 wait=Wait
 install=Install
+
+# Furniture
+gen_furniture=Furniture builder
+corner_shelving=Corner shelving
+table=Table
+measures_corner_shelving=Corner shelving measurements
+measures_table=Table measurements
+
+# Measures
+suggest_base_for_parts=Suggested base for getting parts
+size=Size
+measures=Measures
+thickness=Thickness
+width=Width
+height=Height
+
+# Parts of objects
+parts=Parts
+part_main=Main part
+part_support=Support part
+paw=Paw
+shelf=Shelf
+shelf_square=Square shelf
+rectangular_wall=Rectangular wall
