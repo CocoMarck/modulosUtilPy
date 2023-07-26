@@ -1,8 +1,8 @@
-from Modulo_Language import (
+from .Modulo_Language import (
     Language,
     YesNo
 )
-from Modulo_System import (
+from .Modulo_System import (
     CleanScreen,
 )
 

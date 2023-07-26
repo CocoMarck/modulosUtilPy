@@ -4,7 +4,7 @@ from pathlib import Path as pathlib
 from distutils.dir_util import copy_tree
 from glob import glob
 
-from Modulo_System import get_system
+from .Modulo_System import get_system
 
 
 def Files_List(files='', path='', remove_path=False):

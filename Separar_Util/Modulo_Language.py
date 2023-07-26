@@ -1,11 +1,11 @@
 import locale
 from pathlib import Path as pathlib
-from Modulo_Text import (
+from .Modulo_Text import (
     Text_Read,
     Ignore_Comment,
     Text_Separe
 )
-from Modulo_Files import(
+from .Modulo_Files import(
     Files_List
 )
 

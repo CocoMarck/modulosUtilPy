@@ -1,7 +1,7 @@
 import os
 import platform
 import subprocess
-from Modulo_Text import (
+from .Modulo_Text import (
     Text_Read,
     Ignore_Comment,
     Text_Separe
