@@ -1,4 +1,3 @@
-from . import Modulo_Util as Util
 from .Modulo_GT import Translate as GoogleTranslator
 from .Modulo_Language import (
     Default_Language,
@@ -39,7 +38,7 @@ def Translate(
         set_lang(language_input)
         # Establecer dict-lang por medio del parametro
         lang = Language(language_input)
-        input(lang)
+        #input(lang)
         
         # Declarar list_text, que obtendra el texto traducido.
         # Obtener el texto, del dicionario lang
@@ -101,7 +100,7 @@ def Translate(
             # Sumar texto
             total_number += 1
 
-        input(list_text)
+        #input(list_text)
         # Añadir key y texto al dict_lang
         # Es -1 porque se enpieza por el cero, y en el for le sumo uno
         number_ready = -1

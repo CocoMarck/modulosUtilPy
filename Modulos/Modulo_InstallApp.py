@@ -1,5 +1,19 @@
 from pathlib import Path as pathlib
-from . import Modulo_Util as Util
+
+from .Modulo_Text import (
+    Ignore_Comment,
+    Text_Read,
+    Text_Separe
+)
+from .Modulo_Files import(
+    Files_List,
+    Files_Copy,
+    Create_Dir,
+    Execute_DirectAccess
+)
+from .Modulo_System import(
+    View_echo,
+)
 from .Modulo_Language import Language
 
 
@@ -7,23 +21,23 @@ lang = Language()
 
 
 # Leer datos del texto de instalación
-text_installer = Util.Ignore_Comment(
-        text=Util.Text_Read(
-            file_and_path='./data/Install-App.dat',
-            opc='ModeText'
+text_installer = Ignore_Comment(
+        text=Text_Read(
+            file_and_path='./Install-App.dat',
+            option='ModeText'
         ),
         comment='#'
     )
 
 # Separarar datos del texto de instalacion, sobre caracteres '='
-text_dict = Util.Text_Separe(
+text_dict = Text_Separe(
         text=text_installer,
         text_separe='='
     )
     
 # Agregar Informacion del texto de instalacion, en las variables
 def Path():
-    return Util.View_echo(text=text_dict['path'])
+    return View_echo(text=text_dict['path'])
 
 # Version de aplicación
 def Version():
@@ -72,17 +86,17 @@ def Install(path=''):
     '''Instalar App a una ruta establecida'''
     try:
         # Crear Carpeta, si es que no existe
-        Util.Create_Dir( path )
+        Create_Dir( path )
         # Si existe la carpeta entonces
         if pathlib( path ).exists():
             # Lista de archivos
-            file_list = Util.Files_List(
+            file_list = Files_List(
                 files = '*',
                 path = './',
                 remove_path = False,
             )
             # Excluir de la lista de archivos
-            exclude_installer = Util.Files_List(
+            exclude_installer = Files_List(
                 files = 'Install-App*',
                 path = './',
                 remove_path = False
@@ -92,13 +106,13 @@ def Install(path=''):
             
             # Copiar Archivos a la ruta asignada
             for file_ready in file_list:
-                Util.Files_Copy( 
+                Files_Copy( 
                     file_ready, # Archivo
                     path # Ruta
                 )
                 
             # Crear acceso directo
-            Util.Execute_DirectAccess(
+            Execute_DirectAccess(
                 version=Version(),
                 path=path,
                 name=Name(),

@@ -1,4 +1,17 @@
-from . import Modulo_Util as Util
+from Modulos.Modulo_System import(
+    CleanScreen
+)
+
+from Modulos.Modulo_Text import(
+    Text_Read,
+    Ignore_Comment
+)
+
+from Modulos.Modulo_ShowPrint import(
+    Title,
+    Continue
+)
+
 import pathlib, os
 from glob import glob
 
@@ -36,9 +49,9 @@ def Repository(txt=''):
     if pathlib.Path(file_source).exists(): pass
     else:
         if pathlib.Path(f'{path}sources.list').exists():
-            archive = Util.Text_Read(
+            archive = Text_Read(
                 file_and_path=f'{path}sources.list',
-                opc='ModeText'
+                option='ModeText'
             )
         
             text_ready = ''
@@ -60,7 +73,7 @@ def Repository(txt=''):
 
     # Fin Agregar Configuracion
     if pathlib.Path(path + 'sources.list').exists():
-        cfg = (Util.Title(txt='Repositorios', see=False) +
+        cfg = (Title(text='Repositorios', print_mode=False) +
             f'sudo mv {path}sources.list {path}BackUp_sources.list &&\n'
             f'sudo cp {file_source} {path}sources.list {txt}')
 
@@ -71,7 +84,7 @@ def Repository(txt=''):
 
 
 def TripleBuffer(opc='', txt=''):
-    cfg = Util.Title(txt='Triple Buffer', see=False)
+    cfg = Title(text='Triple Buffer', print_mode=False)
     #os.system('grep drivers /var/log/Xorg.0.log ')
 
     path = '/etc/X11/xorg.conf.d/'
@@ -131,7 +144,7 @@ def TripleBuffer(opc='', txt=''):
 
     elif opc == '0': cfg, file_copy, file_remove = '', '', ''
     else:
-        Util.Continue(msg=True)
+        Continue(message_error=True)
         cfg, file_copy, file_remove = f'{err} (Triple Buffer)\n\n', '', ''
         
 
@@ -272,10 +285,10 @@ def App(
 
     if cfg_save == True:
         # Leer Archivo.txt y almacenar info en una sola variable.
-        txt_fnl = Util.Ignore_Comment(
-            text=Util.Text_Read(
+        txt_fnl = Ignore_Comment(
+            text=Text_Read(
                 file_and_path = cfg_file,
-                opc='ModeText'
+                option='ModeText'
             ),
             
             comment='#'
@@ -284,24 +297,24 @@ def App(
         if txt_add == '': pass
         else: txt_add += ' '
         cfg = (
-            Util.Title(txt = txt_title, see=False) +
+            Title(text = txt_title, print_mode=False) +
             f'{txt_add}{txt_fnl} {txt}'
         )
 
     elif cfg_save == False:
         txt_add = ''
         cfg = f'{err} ({cfg})\n\n'
-        Util.Continue(msg=True)
+        Continue(message_error=True)
 
     else: pass
 
-    Util.CleanScreen()
+    CleanScreen()
 
     return cfg
 
 
 def Mouse_Config(opc='', txt=''):
-    title = Util.Title(txt='Mouse Config', see=False)
+    title = Title(text='Mouse Config', print_mode=False)
 
     path = '/usr/share/X11/xorg.conf.d/'
     file_txt = f'Script_Mouse-Acceleration.{fnl}'
@@ -309,7 +322,7 @@ def Mouse_Config(opc='', txt=''):
     file_remove = f'sudo rm {path}*mouse-acceleration*.conf &&\n'
     
     if opc == 'AccelerationON':
-        file_copy = '# Acceleration ON'
+        file_copy = f'echo "{opc}"'
 
     elif opc == 'AccelerationOFF':
         with open(file_txt, "w") as file_txt:
