@@ -1,8 +1,0 @@
-version=1.0
-path=$HOME/Programas/Herramientas/Instalado/Prueba
-name=Prueba
-exec=python3
-icon=Icon-Prueba.png
-comment=Comentario, tambien de prueba
-terminal=True
-categories=System,Audio
