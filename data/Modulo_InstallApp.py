@@ -23,7 +23,7 @@ import sys, os
 current_dir = os.path.dirname( os.path.abspath(sys.argv[0]) )
 
 # Construye la ruta a Languages desde el directorio que contiene el módulo
-dir_data = os.path.join(current_dir, 'Install-App_resources')
+dir_data = os.path.join(current_dir, 'resources')
 
 # Archivo de registro de configuraciónes
 install_app_dat = os.path.join( dir_data, 'Install-App.dat' )
