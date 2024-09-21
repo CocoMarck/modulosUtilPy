@@ -111,7 +111,7 @@ class Dialog_Command_Run(QDialog):
         vbox_main.addWidget(label)
         
         # Seccion Vertical - Text Edit
-        text_edit = QTextEdit(str(cmd))
+        text_edit = QTextEdit( str(cmd).replace('\n', '<br>') )
         text_edit.setReadOnly(True)
         vbox_main.addWidget(text_edit)
         

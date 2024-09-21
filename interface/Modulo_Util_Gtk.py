@@ -22,7 +22,8 @@ class Dialog_TextView(Gtk.Dialog):
         self, parent,
         text = f'{lang["text"]}...',
         edit=False,
-        size=[512, 256]
+        size=[512, 256],
+        line_wrap=True
     ):
         super().__init__(
             title=lang['text'], transient_for=parent, flags=0
@@ -60,6 +61,7 @@ class Dialog_TextView(Gtk.Dialog):
         
         self.text_view = Gtk.TextView()
         #text_view.set_size_request(512, 256)
+        self.text_view.set_wrap_mode(line_wrap) # Ajustar lineas
         self.text_view.set_editable(edit)
         text_buffer = self.text_view.get_buffer()
         text_buffer.set_text(text)
@@ -107,7 +109,8 @@ class Dialog_Command_Run(Gtk.Dialog):
         parent, cfg='',
         txt=lang['exec'],
         cfg_file='',
-        size=[512, 256]
+        size=[512, 256],
+        line_wrap=True
     ):
         super().__init__(
             title=f"{lang['cmd']} - {lang['exec']}",
@@ -137,7 +140,7 @@ class Dialog_Command_Run(Gtk.Dialog):
         cmd_scroll.set_hexpand(True)
         cmd_scroll.set_vexpand(True)
         cmd_label = Gtk.Label()
-        #cmd_label.set_line_wrap(True)
+        cmd_label.set_line_wrap(line_wrap)
         cmd_label.set_selectable(True)
         #cmd_label.set_justify(Gtk.Justification.LEFT)
         cmd_label.set_text(f'{self.cfg}')
