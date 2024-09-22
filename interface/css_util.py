@@ -80,7 +80,7 @@ def text_widget_style(
     elif type(margin_based_font) == bool:
         if type(font_size) == int:
             set_margin = True
-            margin_xy = [int(margin/2), int(margin/4)]
+            margin_xy = [int(font_size/2), int(font_size/4)]
 
     if set_margin == True:
         if margin_xy[0] <= 0:

@@ -182,11 +182,10 @@ class Dialog_Command_Run(Gtk.Dialog):
 
 
 class Dialog_Wait(Gtk.Dialog):
-    def __init__(self, parent, text=lang['help_wait']):
+    def __init__(self, parent, text=lang['help_wait'], size=[256, 128]):
         super().__init__(
             title=lang['help_wait'],
-            transient_for=parent, flags=0,
-            size=[256, 128]
+            transient_for=parent, flags=0
         )
         self.set_default_size( size[0], size[1] )
         
