@@ -41,7 +41,10 @@ def Text_Read(
             return text_final
         
         elif option == 'ModeList':
-            return text_read
+            text_final = []
+            for line in text_read.splitlines():
+                text_final.append(line)
+            return text_final
         
         else:
             return text_read
