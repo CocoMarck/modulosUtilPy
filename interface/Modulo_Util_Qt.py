@@ -1,20 +1,22 @@
 '''
 Dialogos con funciones especificas, hechos para funcionar en Qt.
 '''
-from os.path import isfile
+from os.path import isfile, isdir
 from logic.Modulo_System import(Command_Run)
 from logic.Modulo_Text import(Text_Read)
 from interface.Modulo_ShowPrint import(Separator)
-from data.Modulo_Language import Language
+from data.Modulo_Language import Language, get_text
 
 from PyQt6.QtWidgets import(
     QWidget,
     QDialog,
     QPushButton,
     QLabel,
+    QLineEdit,
     QTextEdit,
     QVBoxLayout,
-    QHBoxLayout
+    QHBoxLayout,
+    QFileDialog
 )
 
 
@@ -157,3 +159,120 @@ class Dialog_Wait(QDialog):
         hbox.addWidget(label)
 
         hbox.addStretch()
+
+
+
+
+class Dialog_InputDirFile(QDialog):
+    def __init__(
+        self, parent, title='title', label='label', entry='', mode='set_dir',
+        size=[256, 96]
+    ):
+        '''
+        Dialogo para seleccionar un directorio o un archivo.
+        Boton que te abre un dialogo para buscar lo necesario. Una vez seleccionado se remplaza el input/entry
+        
+        mode=str. 'set_dir' 'set_arch'
+        set_dir para seleccionar carpeta
+        set_arch para seleccionar archivo
+        
+        Para obtener lo seleccionado, usar funcion get_input()
+        Deveulve un str si hay algo, y None si no hay nada.
+        
+        Ejemplo de uso:
+        dialog = Dialog_InputDirFile(mode='dir')
+        dialog.exec()
+        text = dialog.get_input()
+        '''
+        super().__init__(parent)
+        
+        self.setWindowTitle( title )
+        self.resize( size[0], size[1] )
+        self.parent=parent
+        self.mode=mode
+        
+        # Contenedor principal
+        vbox_main = QVBoxLayout()
+        self.setLayout(vbox_main)
+        
+        # Seccón vertical | Label | Entry | Boton para seleccionar directiorio o archivo
+        hbox = QHBoxLayout()
+        vbox_main.addLayout(hbox)
+        
+        label_entry = QLabel( label )
+        hbox.addWidget(label_entry)
+        
+        self.entry = QLineEdit( 
+            text=entry,
+            placeholderText = get_text('text')
+        )
+        hbox.addWidget(self.entry)
+        
+        if self.mode == 'set_dir' or self.mode == 'set_arch':
+            button = QPushButton( get_text(self.mode) )
+            button.clicked.connect( self.set_dir_arch )
+            hbox.addWidget( button )
+            
+        
+        # Seperador
+        vbox_main.addStretch()
+            
+
+        # Seccion vertical | Botones de aceptar y cancelar
+        hbox = QHBoxLayout()
+        vbox_main.addLayout(hbox)
+
+        button = QPushButton( get_text('no_set') )
+        button.clicked.connect( self.remove_entry )
+        hbox.addWidget( button )
+        
+        hbox.addStretch()
+        
+        button = QPushButton( get_text('set') )
+        button.clicked.connect( self.close )
+        hbox.addWidget( button )
+        
+        
+        # Fin Mostrar ventana
+        self.show()
+    
+    def get_input(self):
+        # Devolver el texto si es que hay
+        if isinstance( self.entry.text(), str ):
+            return_text = False
+            if self.mode == 'set_dir' and isdir(self.entry.text()):
+                return_text = True
+            elif self.mode == 'set_arch' and isfile(self.entry.text()):
+                return_text = True
+            
+            if return_text == True:
+                return self.entry.text()
+        else:
+            return None
+    
+    def set_dir_arch(self):
+        from pathlib import Path
+
+        # Seleccionar archivo o carpeta
+        if self.mode == 'set_dir':
+            dir_name = QFileDialog.getExistingDirectory(
+                self.parent, 
+                get_text(self.mode),
+                self.entry.text()
+            )
+            if dir_name:
+                self.entry.setText( str(Path(dir_name)) )
+
+        elif self.mode == 'set_arch':
+            file_name, ok = QFileDialog.getOpenFileName(
+                self.parent,
+                get_text(self.mode),
+                self.entry.text(),
+                'All (*)'
+            )
+            if file_name and ok:
+                self.entry.setText( str(Path(file_name)) )
+    
+    def remove_entry(self):
+        self.entry.clear()
+        self.close()
