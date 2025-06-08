@@ -1,4 +1,4 @@
-#    Modulo; util_text.py | read_text()    #
+#    util_text.py | read_text()    #
 
 ```python
 ['# modulosUtilPy', '', 'Modulos para uso general. Modulos para uso personales.']
@@ -56,35 +56,35 @@ win=start cmd /c
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-#    Modulo; util_text.py | separe_text()    #
+#    util_text.py | separe_text()    #
 
 ```python
 {'variable': '40'}
 ```
 
-#    Modulo; util_text.py | only_one_char()    #
+#    util_text.py | only_one_char()    #
 
 ~~~
 Hace-rato-yo-sali-del-fin-de-mi-redimir
 ~~~
 
-#    Modulo; util_text.py | pass_text_filter/ignore_text_filter    #
+#    util_text.py | pass_text_filter/ignore_text_filter    #
 False
   21262322321
 
-#    Modulo; util_text.py | abc_list    #
+#    util_text.py | abc_list    #
 
 ```python
 ['a', 'd', 'e', 'k', 'm', 'n', 'o', 'q', 's', 't', 'w', 'z']
 ```
 
-#    Modulo; util_text.py | not_repeat_item()    #
+#    util_text.py | not_repeat_item()    #
 
 ```python
 ['a', 'b']
 ```
 
-#    Modulo; show_print.py | command_box()/title()/separator()/input_continue()    #
+#    show_print.py | command_box()/title()/separator()/input_continue()    #
 **Command:** `whereis firefox`
 ```bash
 firefox: /usr/bin/firefox
@@ -94,14 +94,13 @@ firefox: /usr/bin/firefox
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-#    Modulo; util_system.py | get_system() view_echo() run_command() get_display_resolution()    #
+#    util_system.py | get_system() view_echo() run_command() get_display_resolution()    #
 El sistema operativo es: linux
 
 ~~~
 config
 core
 interface
-log.md
 logs
 main.py
 notas
@@ -122,7 +121,6 @@ Resolución de pantalla: [1920, 1080]
 config
 core
 interface
-log.md
 logs
 main.py
 notas
