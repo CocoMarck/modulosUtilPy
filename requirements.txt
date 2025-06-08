@@ -1,0 +1,12 @@
+- python >= 3
+
+LIBS:
+- screeninfo (python lib)
+- deeptranslator (python lib)
+- PyQt6 (python lib)
+- PyGtk (python lib)
+
+APPS:
+- xterm (app-linux)
+- ffmpeg (app-win-linux)
+- nano (app-linux)
