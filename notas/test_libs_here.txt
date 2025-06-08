@@ -1,0 +1,9 @@
+example:
+Terminal:
+python
+
+Python:
+>>
+from logic.Modulo_System import *
+
+print( get_system() )
