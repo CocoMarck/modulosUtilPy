@@ -2,6 +2,9 @@ import pathlib
 
 
 class ResourceLoader():
+    '''
+    Objeto que sirve para manejar todos los archivos del directorio `resources`. Tambien los de la ruta `main` de `resources`.
+    '''
     def __init__(
         self, 
         base_dir=pathlib.Path().parent.absolute(),
@@ -12,33 +15,51 @@ class ResourceLoader():
         self.base_dir = pathlib.Path().parent.absolute()
 
         self.data_dir = self.base_dir.joinpath( 'data' )
-
         self.config_dir = self.base_dir.joinpath( 'config' )
+        self.logs_dir = self.base_dir.joinpath( 'logs' )
 
-        self.resource_dir = self.base_dir.joinpath( 'resources' )
-        self.images_dir = self.resource_dir.joinpath( 'images' )
-        self.icons_dir = self.resource_dir.joinpath( 'icons' )
-
-
-    def get_data( self, file: str ) -> pathlib.Path:
-        '''
-        Obtiene la ruta de las base de datos. Normalmente SQLite3
-        '''
-        return self.data_dir.joinpath( file )
-
-
-    def get_config( self, file: str ) -> pathlib.Path:
-        '''
-        Obtiene la ruta de los archivos de configuracion. Pueden ser xml, json, .confg, .txt, .ini
-        '''
-        return self.config_dir.joinpath( file )
+        self.resources_dir = self.base_dir.joinpath( 'resources' )
+        self.images_dir = self.resources_dir.joinpath( 'images' )
+        self.icons_dir = self.resources_dir.joinpath( 'icons' )
         
-
+        
     def exists(self) -> bool:
         '''
         Determina si existe la ruta `resources`
         '''
-        return self.resource_dir.is_dir()
+        return self.resources_dir.is_dir()
+        
+        
+    def get_main_file( self, path: str ) -> pathlib.Path:
+        '''
+        Obtiene desde la ruta main del programa un archivo.
+        '''
+        return self.base_dir.joinpath(path)
+
+
+    def get_data( self, db: str ) -> pathlib.Path:
+        '''
+        Obtiene la ruta de las base de datos. Normalmente SQLite3
+        '''
+        return self.data_dir.joinpath( db )
+
+
+    def get_config( self, config: str ) -> pathlib.Path:
+        '''
+        Obtiene la ruta de los archivos de configuracion. Pueden ser xml, json, .confg, .txt, .ini
+        '''
+        return self.config_dir.joinpath( config )
+        
+
+    def get_log( self, log: str) -> pathlib.Path:
+        return self.logs_dir.joinpath( log )
+        
+
+    def get_file( self, path: str ) -> pathlib.Path:
+        '''
+        Obtiene archivo desde la ruta `main/resources`.
+        '''
+        return self.resources_dir.joinpath(path)
 
 
     def get_image( self, image: str ) -> pathlib.Path:
@@ -70,7 +91,13 @@ class ResourceLoader():
                 dict_path["file"].append( dir_or_file )
 
         return dict_path
-        
+    
+    
+    def get_main_tree( self ) -> dict:
+        '''
+        En `/` obtener de manera recursiva los directorios y archivos.
+        '''
+        return self.get_recursive_tree( self.base_dir )
         
 
     def get_data_tree( self ) -> dict:
@@ -85,6 +112,20 @@ class ResourceLoader():
         En `config` obtener de manera recursiva los directorios y archivos.
         '''
         return self.get_recursive_tree( self.config_dir )
+        
+        
+    def get_log_tree( self ) -> dict:
+        '''
+        En `log` obtener de manera recursiva los directorios y archivos.
+        '''
+        return self.get_recursive_tree( self.logs_dir )
+
+
+    def get_resource_tree( self ) -> dict:
+        '''
+        En `resources` obtener de manera recursiva los directorios y archivos.
+        '''
+        return self.get_recursive_tree( self.resources_dir )
             
 
     def get_image_tree( self ) -> dict:
