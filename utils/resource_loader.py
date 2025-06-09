@@ -3,7 +3,7 @@ import pathlib
 
 class ResourceLoader():
     '''
-    Objeto que sirve para manejar todos los archivos del directorio `resources`. Tambien los de la ruta `main` de `resources`.
+    Objeto que sirve para manejar todos los archivos del directorio `resources`. Tambien los de la ruta `base` de `resources`.
     '''
     def __init__(
         self, 
@@ -30,9 +30,9 @@ class ResourceLoader():
         return self.resources_dir.is_dir()
         
         
-    def get_main_file( self, path: str ) -> pathlib.Path:
+    def get_base_path( self, path: str ) -> pathlib.Path:
         '''
-        Obtiene desde la ruta main del programa un archivo.
+        Obtiene desde la ruta base del programa un archivo.
         '''
         return self.base_dir.joinpath(path)
 
@@ -57,7 +57,7 @@ class ResourceLoader():
 
     def get_file( self, path: str ) -> pathlib.Path:
         '''
-        Obtiene archivo desde la ruta `main/resources`.
+        Obtiene archivo desde la ruta `base/resources`.
         '''
         return self.resources_dir.joinpath(path)
 
@@ -93,7 +93,7 @@ class ResourceLoader():
         return dict_path
     
     
-    def get_main_tree( self ) -> dict:
+    def get_base_tree( self ) -> dict:
         '''
         En `/` obtener de manera recursiva los directorios y archivos.
         '''

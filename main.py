@@ -27,9 +27,9 @@ log_text = ""
 clean_screen()
 
 # util_text | read_text
-log_text += show_print.title( "Modulo; util_text.py | read_text()" )
+log_text += show_print.title( "util_text.py | read_text()" )
 
-readme = resource_obj.get_main_file("README.md")
+readme = resource_obj.get_base_path("README.md")
 log_text += show_print.code_box(
     read_text( readme, "ModeList" ), "python"
 )
@@ -47,9 +47,9 @@ log_text += show_print.separator()
 
 
 # util_text | Comentarios
-show_print.title( "Modulo; util_text.py | Comentarios" )
+show_print.title( "util_text.py | Comentarios" )
 
-run_command_file = resource_obj.get_main_file("config/runCommand.txt")
+run_command_file = resource_obj.get_base_path("config/runCommand.txt")
 log_text += show_print.code_box( 
     read_text( run_command_file, "ModeText" ), "bash"
 )
@@ -69,21 +69,21 @@ log_text += show_print.separator()
 
 
 # util_text | separe text
-log_text += show_print.title( "Modulo; util_text.py | separe_text()" )
+log_text += show_print.title( "util_text.py | separe_text()" )
 log_text += show_print.code_box( 
     separe_text("variable=40"), "python"
 )
 
 
 # util_text | only_one_char
-log_text += show_print.title( "Modulo; util_text.py | only_one_char()" )
+log_text += show_print.title( "util_text.py | only_one_char()" )
 log_text += show_print.code_box(
     only_one_char( "-", "Hace    rato   yo   sali del fin  de mi    redimir")
 )
 
 
 # util_text | pass_text_filter/ignore_text_filter
-log_text += show_print.title( "Modulo; util_text.py | pass_text_filter/ignore_text_filter" )
+log_text += show_print.title( "util_text.py | pass_text_filter/ignore_text_filter" )
 log_text += show_print.print_and_return(  
     text = (
         f'{pass_text_filter( "texto numero 2126232@2321", "1234567890 " )}\n'
@@ -93,14 +93,14 @@ log_text += show_print.print_and_return(
 
 
 # util_text | abc_list
-log_text += show_print.title( "Modulo; util_text.py | abc_list" )
+log_text += show_print.title( "util_text.py | abc_list" )
 
 log_text += show_print.code_box(
     abc_list( ["q", "d", "k", "n", "z", "w", "t", "o", "a", "e", "s", "m"] ), "python"
 )
 
 # util_text | not_repeat_item
-log_text += show_print.title( "Modulo; util_text.py | not_repeat_item()" )
+log_text += show_print.title( "util_text.py | not_repeat_item()" )
 log_text += show_print.code_box(
     not_repeat_item( ["a", "a", "a", "b", "a", "a", "a", "a"] ), "python"
 )
@@ -109,7 +109,7 @@ log_text += show_print.code_box(
 
 
 
-log_text += show_print.title( "Modulo; show_print.py | command_box()/title()/separator()/input_continue()" )
+log_text += show_print.title( "show_print.py | command_box()/title()/separator()/input_continue()" )
 log_text += show_print.command_box( "whereis firefox" )
 
 show_print.input_continue()
@@ -121,7 +121,7 @@ log_text += show_print.separator()
 
 # util_system | get_system
 log_text += show_print.title( 
-    'Modulo; util_system.py | get_system() view_echo() run_command() get_display_resolution()' 
+    'util_system.py | get_system() view_echo() run_command() get_display_resolution()' 
 )
 log_text += show_print.print_and_return( f"El sistema operativo es: {get_system()}" )
 
@@ -152,7 +152,7 @@ show_print.separator()
 
 
 # display_number | get_display_number
-show_print.title( "Modulo; display_number.py | get_display_number()" )
+show_print.title( "display_number.py | get_display_number()" )
 log_text += show_print.print_and_return(
     f"El 50% del ancho de resolución de pantalla: {get_display_number(multipler=0.5, based='width')}" 
 ) + show_print.print_and_return()
