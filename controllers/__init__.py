@@ -1,0 +1,3 @@
+from .database_controller import DataBaseController
+from .table_controller import TareaController
+from .logging_controller import LoggingController

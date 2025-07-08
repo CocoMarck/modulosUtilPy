@@ -1,4 +1,4 @@
-#    util_text.py | read_text()    #
+#    text_util.py | read_text()    #
 
 ```python
 ['# modulosUtilPy', '', 'Modulos para uso general. Modulos para uso personales.']
@@ -56,29 +56,29 @@ win=start cmd /c
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-#    util_text.py | separe_text()    #
+#    text_util.py | separe_text()    #
 
 ```python
 {'variable': '40'}
 ```
 
-#    util_text.py | only_one_char()    #
+#    text_util.py | only_one_char()    #
 
 ~~~
 Hace-rato-yo-sali-del-fin-de-mi-redimir
 ~~~
 
-#    util_text.py | pass_text_filter/ignore_text_filter    #
+#    text_util.py | pass_text_filter/ignore_text_filter    #
 False
   21262322321
 
-#    util_text.py | abc_list    #
+#    text_util.py | abc_list    #
 
 ```python
 ['a', 'd', 'e', 'k', 'm', 'n', 'o', 'q', 's', 't', 'w', 'z']
 ```
 
-#    util_text.py | not_repeat_item()    #
+#    text_util.py | not_repeat_item()    #
 
 ```python
 ['a', 'b']
@@ -94,20 +94,23 @@ firefox: /usr/bin/firefox
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-#    util_system.py | get_system() view_echo() run_command() get_display_resolution()    #
+#    system_util.py | get_system() view_echo() run_command() get_display_resolution()    #
 El sistema operativo es: linux
 
 ~~~
+Bakcup-ModulosViejos
 config
+controllers
 core
+data
+docs
 interface
 logs
 main.py
+models
 notas
-nueva-estructura.md
 old
 README.md
-referencias.md
 requirements.txt
 resources
 utils
@@ -118,16 +121,19 @@ El directorio home: /home/jean_abraham
 Resolución de pantalla: [1920, 1080]
 
 ```bash
+Bakcup-ModulosViejos
 config
+controllers
 core
+data
+docs
 interface
 logs
 main.py
+models
 notas
-nueva-estructura.md
 old
 README.md
-referencias.md
 requirements.txt
 resources
 utils
@@ -147,3 +153,18 @@ El 50% del ancho de resolución de pantalla: 960
 
 El ancho de pantalla entre tres: 640
 
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+#    time_util | get_time()    #
+Timpo de `2.5` horas a minutos: `150.0`
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+#    file_util | get_path(), name()    #
+Usando path: `/home/jean_abraham/`  
+Nombre default: `No_name`  
+Lista de archivos: `['.git', 'Bakcup-ModulosViejos', 'README.md', 'config', 'controllers', 'core', 'data', 'docs', 'interface', 'logs', 'main.py', 'models', 'notas', 'old', 'requirements.txt', 'resources', 'utils', 'views']`  
+Creando shortcut: True
