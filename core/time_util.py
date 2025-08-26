@@ -139,7 +139,7 @@ def separate_datetime_formatted( datetime_formatted: str, return_only: None  ) -
     elif return_only == "time":
         return separate[1]    
     else:
-        return sperate
+        return separate
 
 
 def get_date_from_formatted_datetime( datetime_formatted: str ):
